@@ -30,7 +30,7 @@ type Params struct {
 	Description     string
 	DescriptionHash []byte
 
-	Label string // only used for c-lightning
+	Label string // used for c-lightning and lnd invoice memo
 }
 
 type SparkoParams struct {
