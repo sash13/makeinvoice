@@ -152,7 +152,10 @@ func MakeInvoice(params Params) (bolt11 string, err error) {
 		} else {
 			body, _ = sjson.Set(body, "description_hash", b64h)
 		}
-
+		if params.Label != "" {
+			body, _ = sjson.Set(body, "memo", params.Label)
+		}
+		
 		req, err := http.NewRequest("POST",
 			backend.Host+"/v1/invoices",
 			bytes.NewBufferString(body),
